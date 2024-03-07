@@ -1,6 +1,6 @@
-const fileSystem = require ('./node_modules/graceful-fs/graceful-fs')
+const fileSystem = require ('./Images/node_modules/graceful-fs/graceful-fs')
 const inquirer = require("inquirer");
-const {circle, square, triangle} = require("./lib/shapes");
+const {circle, square, triangle} = require("./lib/shape");
 
 class Svg {
     constructor () {
@@ -8,10 +8,10 @@ class Svg {
         this.shapeElement = ''
     }
     render (){
-        return '<svg version= "1.1" xmlns="http://ww.we.org/2000/svg" width="300" height="200">${this.sjapeElement}${this.textElement}</svg>'
+        return `<svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="300" height="200">${this.shapeElement}${this.textElement}</svg>`
     }
     setTextElement(text,color){
-        this.textElement = 'text x="150" y="125", font-size="60", text-anchor="middle", fill="${color}'
+        this.textElement = `<text x="150" y="125" font-size="60" text-anchor="middle" fill="${color}">${text}</text>`
     }
     setShapeElement(shape){
         this.shapeElement = shape.render ()
@@ -46,10 +46,10 @@ function writeToFile(fileName, data){
     };
 }
 
-async function init () {
-    console.log ("starting init");
-    var svgString = "";
-    var svgFile = "logo.svg";
+async function init() {
+    console.log("Starting init");
+	var svgString = "";
+	var svg_file = "logo.svg";
 
     const answers = await inquirer.prompt (questions);
 
@@ -68,7 +68,7 @@ async function init () {
     //console log user shape selection
     let userShape;
     if (user_shape_type === "Square" || user_shape_type ==="square"){
-        userShape = new Square();
+        userShape = new square();
         console.log ("User have selected Square");
 
     }

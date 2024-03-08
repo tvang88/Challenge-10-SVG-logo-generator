@@ -17,7 +17,7 @@ class Svg {
         this.shapeElement = shape.render ()
     }
 }
-
+// Array of 'questions' using the 'inquirer' library with the following questions.
 const questions = [ {
     type: "input",
     name: "text",
@@ -31,19 +31,19 @@ const questions = [ {
 {
     type: "list",
     name: "pixel-image",
-    message: "please chppse the Pixel image you would like to use",
+    message: "please choose the Pixel image you would like to use",
     choices: ["circle", "square", "triangle"],
 },
 ];
 
 function writeToFile(fileName, data){
     console.log("writing ["+ data +"] to file ["+ fileName +"]")
-    fileSystem.writeFile (fileName, data, function (err)) {
+    fileSystem.writeFile (fileName, data, function (err) {
         if (err){
             return console.log(error);
         }
         console.log("Congratulations, you have generated a logo.svg");
-    };
+    });
 }
 
 async function init() {
@@ -60,11 +60,11 @@ async function init() {
         console.log ("Selected amount of characters exceed allowed amount. Please enter 1-3 characters");
         return;
     }
-    console.log("User text: [" = userText +);
+    console.log("User text: [" + userText +" ]");
     userFontColor = answers ["text-color"];
     console.log ("user's font color: [" + user_font_color + "]");
     user_shape_type = answers.shape;
-    console.log ("User shape color: [" = user_shape_type +"]");
+    console.log ("User shape color: [" + user_shape_type +"]");
     //console log user shape selection
     let userShape;
     if (user_shape_type === "Square" || user_shape_type ==="square"){
@@ -85,13 +85,11 @@ else {
 }
 userShape.setColor(user_shape_color);
 
-//
 var svg = new Svg();
 svg.setTextElement(user_text, user_font_color);
 svg.setShapeElement(user_shape);
 svgString = svg.render();
 
-//
 console.log("Displaying shape:\n\n + svgString");
 
 console.log("The shape generation has been completed");

@@ -1,3 +1,5 @@
+codes written with help from links below, Slack, youtube, and google searches. -T.Vang
+
 # 10 Object-oriented Programming: SVG Logo Maker
 
 ## Your Task
